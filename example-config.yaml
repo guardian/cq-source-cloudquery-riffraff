@@ -1,0 +1,20 @@
+kind: source
+spec:
+  name: "riffraff"
+  registry: "grpc"
+  path: "localhost:7777"
+  version: "v1.0.0"
+  tables: ["*"]
+  destinations:
+    - "sqlite"
+  spec:
+    riffraff_url: ${RIFFRAFF_URL}
+    api_key: ${API_KEY}
+---
+kind: destination
+spec:
+  name: sqlite
+  path: cloudquery/sqlite
+  version: "v1.2.1"
+  spec:
+    connection_string: ./db.sql
